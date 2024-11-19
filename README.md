@@ -1,4 +1,4 @@
-# Go todo app
+# REST API for Creating TODO Lists in Go
 
 ## read .env file
       go get github.com/joho/godotenv
