@@ -1,4 +1,11 @@
 # Go todo app
+
+## read .env file
+      go get github.com/joho/godotenv
+
+## Read yaml file 
+        go get github.com/spf13/viper
+
 ## Postgres :
         docker pull postgres
 ## Run docker postres image:
@@ -10,3 +17,9 @@
 
 ## database view:
         docker exec -it conatiner_id /bin/bash
+## postgres command line command  
+        psql -U postgres
+
+## database connection package
+        go get github.com/jmoiron/sqlx
+
