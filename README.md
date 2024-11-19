@@ -23,3 +23,5 @@
 ## database connection package
         go get github.com/jmoiron/sqlx
 
+## logging package 
+        go get github.com/sirupsen/logrus
