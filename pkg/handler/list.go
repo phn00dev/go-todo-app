@@ -110,7 +110,7 @@ func (h *Handler) deleteList(c *gin.Context) {
 		return
 	}
 	// delete list service
-	err = h.services.Delete(userId, listId)
+	err = h.services.TodoList.Delete(userId, listId)
 	if err != nil {
 		newErrorResponse(c, http.StatusInternalServerError, err.Error())
 		return
