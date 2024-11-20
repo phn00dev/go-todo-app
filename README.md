@@ -30,7 +30,7 @@
     github.com/dgrijalva/jwt-go
 
 ### API Documentation
-   go get -u github.com/swaggo/swag/cmd/swag
+    go get -u github.com/swaggo/swag/cmd/swag
 
 ### Swag init command
     swag init -g cmd/main.go
