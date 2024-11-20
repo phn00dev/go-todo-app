@@ -25,3 +25,6 @@
 
 ### Logging package 
     go get github.com/sirupsen/logrus
+
+### JWT token package 
+    github.com/dgrijalva/jwt-go
