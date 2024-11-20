@@ -28,3 +28,14 @@
 
 ### JWT token package 
     github.com/dgrijalva/jwt-go
+
+### API Documentation
+   go get -u github.com/swaggo/swag/cmd/swag
+
+### Swag init command
+    swag init -g cmd/main.go
+
+### Download gin-swagger by using:
+    go get -u github.com/swaggo/gin-swagger
+    go get -u github.com/swaggo/files
+
