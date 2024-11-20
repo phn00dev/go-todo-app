@@ -9,12 +9,12 @@ import (
 )
 
 func (h *Handler) signUp(c *gin.Context) {
-	var inputs todo.User
-	if err := c.BindJSON(&inputs); err != nil {
+	var regesterRequest todo.User
+	if err := c.BindJSON(&regesterRequest); err != nil {
 		newErrorResponse(c, http.StatusBadRequest, err.Error())
 		return
 	}
-	id, err := h.services.Authorization.CreateUser(inputs)
+	id, err := h.services.Authorization.CreateUser(regesterRequest)
 	if err != nil {
 		newErrorResponse(c, http.StatusInternalServerError, err.Error())
 		return
@@ -25,6 +25,25 @@ func (h *Handler) signUp(c *gin.Context) {
 	})
 }
 
-func (h *Handler) signIn(c *gin.Context) {
+type signInInput struct {
+	Username string `json:"username" binding:"required"`
+	Password string `json:"password" binding:"required"`
+}
 
+func (h *Handler) signIn(c *gin.Context) {
+	var loginRequest signInInput
+	if err := c.BindJSON(&loginRequest); err != nil {
+		newErrorResponse(c, http.StatusBadRequest, err.Error())
+		return
+	}
+
+	// call login service
+	token, err := h.services.Authorization.GenerateToken(loginRequest.Username, loginRequest.Password)
+	if err != nil {
+		newErrorResponse(c, http.StatusInternalServerError, err.Error())
+		return
+	}
+	c.JSON(http.StatusOK, map[string]any{
+		"bearer_token": token,
+	})
 }
